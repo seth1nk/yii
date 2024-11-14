@@ -145,6 +145,10 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public function actionTable()
+    {
+        return $this->render('table');
+    }
 
     /**
      * Signs user up.

@@ -43,22 +43,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
     }
     if (!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Автомобили', 'url' => ['/avto/index']];
-    }
-    if (!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Гараж', 'url' => ['/garage/index']];
-    }
-    if (!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Товар', 'url' => ['/tovar/index']];
-    }
-    if (!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Маршрут', 'url' => ['/marh/index']];
-    }
-    if (!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Диспетчерская', 'url' => ['/dispet/index']];
-    }
-    if (!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Водители', 'url' => ['/voditeli/index']];
+        $menuItems[] = ['label' => 'Таблицы', 'url' => ['/site/table']];
     }
 
     echo Nav::widget([

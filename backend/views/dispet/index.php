@@ -13,7 +13,7 @@ use yii\grid\GridView;
 $this->title = 'Диспетчерские';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<link rel="stylesheet" type="text/css" href="/css/1.css" />
+<link rel="stylesheet" type="text/css" href="/css/2.css" />
 <div class="dispet-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
