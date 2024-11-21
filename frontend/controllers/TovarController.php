@@ -58,14 +58,14 @@ class TovarController extends Controller
 
     /**
      * Displays a single Tovar model.
-     * @param int $Код_товара Код Товара
+     * @param int $id_tovar Id Tovar
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($Код_товара)
+    public function actionView($id_tovar)
     {
         return $this->render('view', [
-            'model' => $this->findModel($Код_товара),
+            'model' => $this->findModel($id_tovar),
         ]);
     }
 
@@ -80,7 +80,7 @@ class TovarController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'Код_товара' => $model->Код_товара]);
+                return $this->redirect(['view', 'id_tovar' => $model->id_tovar]);
             }
         } else {
             $model->loadDefaultValues();
@@ -94,16 +94,16 @@ class TovarController extends Controller
     /**
      * Updates an existing Tovar model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $Код_товара Код Товара
+     * @param int $id_tovar Id Tovar
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($Код_товара)
+    public function actionUpdate($id_tovar)
     {
-        $model = $this->findModel($Код_товара);
+        $model = $this->findModel($id_tovar);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'Код_товара' => $model->Код_товара]);
+            return $this->redirect(['view', 'id_tovar' => $model->id_tovar]);
         }
 
         return $this->render('update', [
@@ -114,13 +114,13 @@ class TovarController extends Controller
     /**
      * Deletes an existing Tovar model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $Код_товара Код Товара
+     * @param int $id_tovar Id Tovar
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($Код_товара)
+    public function actionDelete($id_tovar)
     {
-        $this->findModel($Код_товара)->delete();
+        $this->findModel($id_tovar)->delete();
 
         return $this->redirect(['index']);
     }
@@ -128,13 +128,13 @@ class TovarController extends Controller
     /**
      * Finds the Tovar model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $Код_товара Код Товара
+     * @param int $id_tovar Id Tovar
      * @return Tovar the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($Код_товара)
+    protected function findModel($id_tovar)
     {
-        if (($model = Tovar::findOne(['Код_товара' => $Код_товара])) !== null) {
+        if (($model = Tovar::findOne(['id_tovar' => $id_tovar])) !== null) {
             return $model;
         }
 

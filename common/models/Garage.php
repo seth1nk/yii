@@ -7,14 +7,14 @@ use Yii;
 /**
  * This is the model class for table "garage".
  *
- * @property int $Код_авто
- * @property string $Тип_поломки
- * @property string $Вид_запчасти
- * @property int $Цена_запчасти
- * @property string $Дата_начала_ремонта
- * @property string $Дата_конца_ремонта
+ * @property int $id_avto
+ * @property string $polomka
+ * @property string $zapchast
+ * @property float $cena_zapchast
+ * @property string $data_nachalo
+ * @property string|null $data_konec
  *
- * @property Avto $КодАвто
+ * @property Avto $avto
  */
 class Garage extends \yii\db\ActiveRecord
 {
@@ -32,11 +32,13 @@ class Garage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Тип_поломки', 'Вид_запчасти', 'Цена_запчасти', 'Дата_начала_ремонта', 'Дата_конца_ремонта'], 'required'],
-            [['Цена_запчасти'], 'integer'],
-            [['Дата_начала_ремонта', 'Дата_конца_ремонта'], 'safe'],
-            [['Тип_поломки', 'Вид_запчасти'], 'string', 'max' => 15],
-            [['Код_авто'], 'exist', 'skipOnError' => true, 'targetClass' => Avto::class, 'targetAttribute' => ['Код_авто' => 'Код_авто']],
+            [['id_avto', 'polomka', 'zapchast', 'cena_zapchast', 'data_nachalo'], 'required'],
+            [['id_avto'], 'integer'],
+            [['cena_zapchast'], 'number'],
+            [['data_nachalo', 'data_konec'], 'safe'],
+            [['polomka', 'zapchast'], 'string', 'max' => 255],
+            [['id_avto'], 'unique'],
+            [['id_avto'], 'exist', 'skipOnError' => true, 'targetClass' => Avto::class, 'targetAttribute' => ['id_avto' => 'id_avto']],
         ];
     }
 
@@ -46,22 +48,22 @@ class Garage extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Код_авто' => 'Код Авто',
-            'Тип_поломки' => 'Тип Поломки',
-            'Вид_запчасти' => 'Вид Запчасти',
-            'Цена_запчасти' => 'Цена Запчасти',
-            'Дата_начала_ремонта' => 'Дата Начала Ремонта',
-            'Дата_конца_ремонта' => 'Дата Конца Ремонта',
+            'id_avto' => 'Id Avto',
+            'polomka' => 'Polomka',
+            'zapchast' => 'Zapchast',
+            'cena_zapchast' => 'Cena Zapchast',
+            'data_nachalo' => 'Data Nachalo',
+            'data_konec' => 'Data Konec',
         ];
     }
 
     /**
-     * Gets query for [[КодАвто]].
+     * Gets query for [[Avto]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getКодАвто()
+    public function getAvto()
     {
-        return $this->hasOne(Avto::class, ['Код_авто' => 'Код_авто']);
+        return $this->hasOne(Avto::class, ['id_avto' => 'id_avto']);
     }
 }

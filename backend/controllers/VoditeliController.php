@@ -58,14 +58,14 @@ class VoditeliController extends Controller
 
     /**
      * Displays a single Voditeli model.
-     * @param int $Код_водителя Код Водителя
+     * @param int $id_vod Id Vod
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($Код_водителя)
+    public function actionView($id_vod)
     {
         return $this->render('view', [
-            'model' => $this->findModel($Код_водителя),
+            'model' => $this->findModel($id_vod),
         ]);
     }
 
@@ -80,7 +80,7 @@ class VoditeliController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'Код_водителя' => $model->Код_водителя]);
+                return $this->redirect(['view', 'id_vod' => $model->id_vod]);
             }
         } else {
             $model->loadDefaultValues();
@@ -94,16 +94,16 @@ class VoditeliController extends Controller
     /**
      * Updates an existing Voditeli model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $Код_водителя Код Водителя
+     * @param int $id_vod Id Vod
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($Код_водителя)
+    public function actionUpdate($id_vod)
     {
-        $model = $this->findModel($Код_водителя);
+        $model = $this->findModel($id_vod);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'Код_водителя' => $model->Код_водителя]);
+            return $this->redirect(['view', 'id_vod' => $model->id_vod]);
         }
 
         return $this->render('update', [
@@ -114,13 +114,13 @@ class VoditeliController extends Controller
     /**
      * Deletes an existing Voditeli model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $Код_водителя Код Водителя
+     * @param int $id_vod Id Vod
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($Код_водителя)
+    public function actionDelete($id_vod)
     {
-        $this->findModel($Код_водителя)->delete();
+        $this->findModel($id_vod)->delete();
 
         return $this->redirect(['index']);
     }
@@ -128,13 +128,13 @@ class VoditeliController extends Controller
     /**
      * Finds the Voditeli model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $Код_водителя Код Водителя
+     * @param int $id_vod Id Vod
      * @return Voditeli the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($Код_водителя)
+    protected function findModel($id_vod)
     {
-        if (($model = Voditeli::findOne(['Код_водителя' => $Код_водителя])) !== null) {
+        if (($model = Voditeli::findOne(['id_vod' => $id_vod])) !== null) {
             return $model;
         }
 

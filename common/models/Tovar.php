@@ -7,13 +7,12 @@ use Yii;
 /**
  * This is the model class for table "tovar".
  *
- * @property int $Код_товара
- * @property string $Наименование_товара
- * @property int $Количество_товара
- * @property int $Цена_товара
+ * @property int $id_tovar
+ * @property string $name_tovar
+ * @property int $kolvo_tovar
+ * @property float $cena_tovar
  *
  * @property Dispet[] $dispets
- * @property Marh[] $Путевкаs
  */
 class Tovar extends \yii\db\ActiveRecord
 {
@@ -31,9 +30,10 @@ class Tovar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Наименование_товара', 'Количество_товара', 'Цена_товара'], 'required'],
-            [['Количество_товара', 'Цена_товара'], 'integer'],
-            [['Наименование_товара'], 'string', 'max' => 30],
+            [['name_tovar', 'kolvo_tovar', 'cena_tovar'], 'required'],
+            [['kolvo_tovar'], 'integer'],
+            [['cena_tovar'], 'number'],
+            [['name_tovar'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,10 +43,10 @@ class Tovar extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Код_товара' => 'Код Товара',
-            'Наименование_товара' => 'Наименование Товара',
-            'Количество_товара' => 'Количество Товара',
-            'Цена_товара' => 'Цена Товара',
+            'id_tovar' => 'Id Tovar',
+            'name_tovar' => 'Name Tovar',
+            'kolvo_tovar' => 'Kolvo Tovar',
+            'cena_tovar' => 'Cena Tovar',
         ];
     }
 
@@ -57,16 +57,6 @@ class Tovar extends \yii\db\ActiveRecord
      */
     public function getDispets()
     {
-        return $this->hasMany(Dispet::class, ['Товар' => 'Код_товара']);
-    }
-
-    /**
-     * Gets query for [[Путевкаs]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getПутевкаs()
-    {
-        return $this->hasMany(Marh::class, ['Код_маршрута' => 'Путевка'])->viaTable('dispet', ['Товар' => 'Код_товара']);
+        return $this->hasMany(Dispet::class, ['tovar' => 'id_tovar']);
     }
 }

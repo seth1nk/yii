@@ -10,28 +10,26 @@ $this->title = 'Авто-Нейз';
         <div class="container-fluid py-5 text-center">
             <h1 class="display-4">Автосалон: "Авто-Нейз"</h1>
         </div>
-    </div>
+            <style>
+   .ramka {
+    border: 3px solid #00a8e1;
+   }
+</style>
+<h2><b>           Выбери себе автомобиль</b></h2>
 
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2 align="center">Выбери себе автомобиль</h2>
-
-                <pre>
-Автомобили из Южной Кореи, Китая, Японии, Германии, США, Европы ОАЭ,
-Казахстана и Армениив наличии и под заказ
-
-Проверенные автомобили с пробегом и без:</pre>
-<img src="/img/toyota.jpeg" width="100%">
-<h1 align="center">TOYOTA</h1>
-<img src="/img/bmw.jpg" width="100%">
-<h1 align="center">BMW</h1>
-<img src="/img/mers.jpeg" width="100%">
-<h1 align="center">MERCEDES</h1>
-
+<p>
+Автомобили из <u>Южной Кореи</u>, <u>Китая</u>, <u>Японии</u>, <u>Германии</u>, <u>США</u>, <u>Европы ОАЭ</u>,
+<u>Казахстана</u> и <u>Армении</u> в наличии и под заказ</p>
+<b style="color:white">Проверенные автомобили с пробегом и без:</b>
+<p></p>
+<div align="center"><img src="/img/toyota.jpeg"  width="50%" class="ramka"></div>
+<div align="center"><b style="font-size: 50px;color:white">TOYOTA</b></div>
+<div align="center"><img src="/img/bmw.jpg" width="50%" class="ramka"></div>
+<div align="center"><b style="font-size: 50px;color:white">BMW</b></div>
+<div align="center"><img src="/img/mers.jpeg"  width="50%" class="ramka"></div>
+<div align="center"><b style="font-size: 50px;color:white">MERCEDES</b></div>
+                </div>
             </div>
-        </div>
 
     </div>
 </div>

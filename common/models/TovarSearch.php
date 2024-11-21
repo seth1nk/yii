@@ -17,8 +17,9 @@ class TovarSearch extends Tovar
     public function rules()
     {
         return [
-            [['Код_товара', 'Количество_товара', 'Цена_товара'], 'integer'],
-            [['Наименование_товара'], 'safe'],
+            [['id_tovar', 'kolvo_tovar'], 'integer'],
+            [['name_tovar'], 'safe'],
+            [['cena_tovar'], 'number'],
         ];
     }
 
@@ -58,12 +59,12 @@ class TovarSearch extends Tovar
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Код_товара' => $this->Код_товара,
-            'Количество_товара' => $this->Количество_товара,
-            'Цена_товара' => $this->Цена_товара,
+            'id_tovar' => $this->id_tovar,
+            'kolvo_tovar' => $this->kolvo_tovar,
+            'cena_tovar' => $this->cena_tovar,
         ]);
 
-        $query->andFilterWhere(['like', 'Наименование_товара', $this->Наименование_товара]);
+        $query->andFilterWhere(['like', 'name_tovar', $this->name_tovar]);
 
         return $dataProvider;
     }

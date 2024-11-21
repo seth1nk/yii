@@ -7,17 +7,17 @@ use Yii;
 /**
  * This is the model class for table "dispet".
  *
- * @property int $Код_авто
- * @property string $Время_прибытия
- * @property string $Время_отбытия
- * @property int $Код_водителя
- * @property int $Путевка
- * @property int $Товар
+ * @property int $id_avto
+ * @property string $time_prib
+ * @property string|null $time_otb
+ * @property int $id_vod
+ * @property int $pytevka
+ * @property int $tovar
  *
- * @property Avto $КодАвто
- * @property Voditeli $КодВодителя
- * @property Marh $Путевка0
- * @property Tovar $Товар0
+ * @property Avto $avto
+ * @property Marh $pytevka0
+ * @property Tovar $tovar0
+ * @property Voditeli $vod
  */
 class Dispet extends \yii\db\ActiveRecord
 {
@@ -35,16 +35,14 @@ class Dispet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Код_авто', 'Время_прибытия', 'Время_отбытия', 'Код_водителя', 'Путевка', 'Товар'], 'required'],
-            [['Код_авто', 'Код_водителя', 'Путевка', 'Товар'], 'integer'],
-            [['Время_прибытия', 'Время_отбытия'], 'string', 'max' => 15],
-            [['Код_водителя'], 'unique'],
-            [['Путевка', 'Товар'], 'unique', 'targetAttribute' => ['Путевка', 'Товар']],
-            [['Код_авто'], 'unique'],
-            [['Код_авто'], 'exist', 'skipOnError' => true, 'targetClass' => Avto::class, 'targetAttribute' => ['Код_авто' => 'Код_авто']],
-            [['Код_водителя'], 'exist', 'skipOnError' => true, 'targetClass' => Voditeli::class, 'targetAttribute' => ['Код_водителя' => 'Код_водителя']],
-            [['Путевка'], 'exist', 'skipOnError' => true, 'targetClass' => Marh::class, 'targetAttribute' => ['Путевка' => 'Код_маршрута']],
-            [['Товар'], 'exist', 'skipOnError' => true, 'targetClass' => Tovar::class, 'targetAttribute' => ['Товар' => 'Код_товара']],
+            [['id_avto', 'time_prib', 'id_vod', 'pytevka', 'tovar'], 'required'],
+            [['id_avto', 'id_vod', 'pytevka', 'tovar'], 'integer'],
+            [['time_prib', 'time_otb'], 'safe'],
+            [['id_avto'], 'unique'],
+            [['pytevka'], 'exist', 'skipOnError' => true, 'targetClass' => Marh::class, 'targetAttribute' => ['pytevka' => 'id_marh']],
+            [['id_avto'], 'exist', 'skipOnError' => true, 'targetClass' => Avto::class, 'targetAttribute' => ['id_avto' => 'id_avto']],
+            [['id_vod'], 'exist', 'skipOnError' => true, 'targetClass' => Voditeli::class, 'targetAttribute' => ['id_vod' => 'id_vod']],
+            [['tovar'], 'exist', 'skipOnError' => true, 'targetClass' => Tovar::class, 'targetAttribute' => ['tovar' => 'id_tovar']],
         ];
     }
 
@@ -54,52 +52,52 @@ class Dispet extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Код_авто' => 'Код Авто',
-            'Время_прибытия' => 'Время Прибытия',
-            'Время_отбытия' => 'Время Отбытия',
-            'Код_водителя' => 'Код Водителя',
-            'Путевка' => 'Путевка',
-            'Товар' => 'Товар',
+            'id_avto' => 'Id Avto',
+            'time_prib' => 'Time Prib',
+            'time_otb' => 'Time Otb',
+            'id_vod' => 'Id Vod',
+            'pytevka' => 'Pytevka',
+            'tovar' => 'Tovar',
         ];
     }
 
     /**
-     * Gets query for [[КодАвто]].
+     * Gets query for [[Avto]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getКодАвто()
+    public function getAvto()
     {
-        return $this->hasOne(Avto::class, ['Код_авто' => 'Код_авто']);
+        return $this->hasOne(Avto::class, ['id_avto' => 'id_avto']);
     }
 
     /**
-     * Gets query for [[КодВодителя]].
+     * Gets query for [[Pytevka0]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getКодВодителя()
+    public function getPytevka0()
     {
-        return $this->hasOne(Voditeli::class, ['Код_водителя' => 'Код_водителя']);
+        return $this->hasOne(Marh::class, ['id_marh' => 'pytevka']);
     }
 
     /**
-     * Gets query for [[Путевка0]].
+     * Gets query for [[Tovar0]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getПутевка0()
+    public function getTovar0()
     {
-        return $this->hasOne(Marh::class, ['Код_маршрута' => 'Путевка']);
+        return $this->hasOne(Tovar::class, ['id_tovar' => 'tovar']);
     }
 
     /**
-     * Gets query for [[Товар0]].
+     * Gets query for [[Vod]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getТовар0()
+    public function getVod()
     {
-        return $this->hasOne(Tovar::class, ['Код_товара' => 'Товар']);
+        return $this->hasOne(Voditeli::class, ['id_vod' => 'id_vod']);
     }
 }

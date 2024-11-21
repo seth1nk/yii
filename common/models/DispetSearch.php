@@ -17,8 +17,8 @@ class DispetSearch extends Dispet
     public function rules()
     {
         return [
-            [['Код_авто', 'Код_водителя', 'Путевка', 'Товар'], 'integer'],
-            [['Время_прибытия', 'Время_отбытия'], 'safe'],
+            [['id_avto', 'id_vod', 'pytevka', 'tovar'], 'integer'],
+            [['time_prib', 'time_otb'], 'safe'],
         ];
     }
 
@@ -58,14 +58,13 @@ class DispetSearch extends Dispet
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Код_авто' => $this->Код_авто,
-            'Код_водителя' => $this->Код_водителя,
-            'Путевка' => $this->Путевка,
-            'Товар' => $this->Товар,
+            'id_avto' => $this->id_avto,
+            'time_prib' => $this->time_prib,
+            'time_otb' => $this->time_otb,
+            'id_vod' => $this->id_vod,
+            'pytevka' => $this->pytevka,
+            'tovar' => $this->tovar,
         ]);
-
-        $query->andFilterWhere(['like', 'Время_прибытия', $this->Время_прибытия])
-            ->andFilterWhere(['like', 'Время_отбытия', $this->Время_отбытия]);
 
         return $dataProvider;
     }

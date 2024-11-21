@@ -58,14 +58,14 @@ class GarageController extends Controller
 
     /**
      * Displays a single Garage model.
-     * @param int $Код_авто Код Авто
+     * @param int $id_avto Id Avto
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($Код_авто)
+    public function actionView($id_avto)
     {
         return $this->render('view', [
-            'model' => $this->findModel($Код_авто),
+            'model' => $this->findModel($id_avto),
         ]);
     }
 
@@ -80,7 +80,7 @@ class GarageController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'Код_авто' => $model->Код_авто]);
+                return $this->redirect(['view', 'id_avto' => $model->id_avto]);
             }
         } else {
             $model->loadDefaultValues();
@@ -94,16 +94,16 @@ class GarageController extends Controller
     /**
      * Updates an existing Garage model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $Код_авто Код Авто
+     * @param int $id_avto Id Avto
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($Код_авто)
+    public function actionUpdate($id_avto)
     {
-        $model = $this->findModel($Код_авто);
+        $model = $this->findModel($id_avto);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'Код_авто' => $model->Код_авто]);
+            return $this->redirect(['view', 'id_avto' => $model->id_avto]);
         }
 
         return $this->render('update', [
@@ -114,13 +114,13 @@ class GarageController extends Controller
     /**
      * Deletes an existing Garage model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $Код_авто Код Авто
+     * @param int $id_avto Id Avto
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($Код_авто)
+    public function actionDelete($id_avto)
     {
-        $this->findModel($Код_авто)->delete();
+        $this->findModel($id_avto)->delete();
 
         return $this->redirect(['index']);
     }
@@ -128,13 +128,13 @@ class GarageController extends Controller
     /**
      * Finds the Garage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $Код_авто Код Авто
+     * @param int $id_avto Id Avto
      * @return Garage the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($Код_авто)
+    protected function findModel($id_avto)
     {
-        if (($model = Garage::findOne(['Код_авто' => $Код_авто])) !== null) {
+        if (($model = Garage::findOne(['id_avto' => $id_avto])) !== null) {
             return $model;
         }
 

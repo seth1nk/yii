@@ -17,8 +17,8 @@ class VoditeliSearch extends Voditeli
     public function rules()
     {
         return [
-            [['Код_водителя', 'Стаж', 'Номер_паспорта'], 'integer'],
-            [['ФИО_водителя', 'Место_прописки', 'Телефон'], 'safe'],
+            [['id_vod', 'stazh'], 'integer'],
+            [['name_vod', 'number_pass', 'adress', 'phone'], 'safe'],
         ];
     }
 
@@ -58,14 +58,14 @@ class VoditeliSearch extends Voditeli
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Код_водителя' => $this->Код_водителя,
-            'Стаж' => $this->Стаж,
-            'Номер_паспорта' => $this->Номер_паспорта,
+            'id_vod' => $this->id_vod,
+            'stazh' => $this->stazh,
         ]);
 
-        $query->andFilterWhere(['like', 'ФИО_водителя', $this->ФИО_водителя])
-            ->andFilterWhere(['like', 'Место_прописки', $this->Место_прописки])
-            ->andFilterWhere(['like', 'Телефон', $this->Телефон]);
+        $query->andFilterWhere(['like', 'name_vod', $this->name_vod])
+            ->andFilterWhere(['like', 'number_pass', $this->number_pass])
+            ->andFilterWhere(['like', 'adress', $this->adress])
+            ->andFilterWhere(['like', 'phone', $this->phone]);
 
         return $dataProvider;
     }

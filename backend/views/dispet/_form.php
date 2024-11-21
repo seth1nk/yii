@@ -12,20 +12,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'Код_авто')->textInput() ?>
+    <?= $form->field($model, 'id_avto')->textInput() ?>
 
-    <?= $form->field($model, 'Время_прибытия')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'time_prib')->textInput() ?>
 
-    <?= $form->field($model, 'Время_отбытия')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'time_otb')->textInput() ?>
 
-    <?= $form->field($model, 'Код_водителя')->textInput() ?>
+    <?= $form->field($model, 'id_vod')->textInput() ?>
 
-    <?= $form->field($model, 'Путевка')->textInput() ?>
+    <?= $form->field($model, 'pytevka')->textInput() ?>
 
-    <?= $form->field($model, 'Товар')->textInput() ?>
+    <?= $form->field($model, 'tovar')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

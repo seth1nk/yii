@@ -7,10 +7,10 @@ class m241113_112647_create_tovar_table extends Migration
     public function safeUp()
     {
         $this->createTable('tovar', [
-            'Код_товара' => $this->primaryKey(),
-            'Наименование_товара' => $this->string()->notNull(),
-            'Количество_товара' => $this->integer()->notNull(),
-            'Цена_товара' => $this->decimal(10, 2)->notNull(),
+            'id_tovar' => $this->primaryKey(),
+            'name_tovar' => $this->string()->notNull(),
+            'kolvo_tovar' => $this->integer()->notNull(),
+            'cena_tovar' => $this->decimal(10, 2)->notNull(),
         ]);
     }
 

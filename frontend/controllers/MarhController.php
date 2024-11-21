@@ -58,14 +58,14 @@ class MarhController extends Controller
 
     /**
      * Displays a single Marh model.
-     * @param int $Код_маршрута Код Маршрута
+     * @param int $id_marh Id Marh
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($Код_маршрута)
+    public function actionView($id_marh)
     {
         return $this->render('view', [
-            'model' => $this->findModel($Код_маршрута),
+            'model' => $this->findModel($id_marh),
         ]);
     }
 
@@ -80,7 +80,7 @@ class MarhController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'Код_маршрута' => $model->Код_маршрута]);
+                return $this->redirect(['view', 'id_marh' => $model->id_marh]);
             }
         } else {
             $model->loadDefaultValues();
@@ -94,16 +94,16 @@ class MarhController extends Controller
     /**
      * Updates an existing Marh model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $Код_маршрута Код Маршрута
+     * @param int $id_marh Id Marh
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($Код_маршрута)
+    public function actionUpdate($id_marh)
     {
-        $model = $this->findModel($Код_маршрута);
+        $model = $this->findModel($id_marh);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'Код_маршрута' => $model->Код_маршрута]);
+            return $this->redirect(['view', 'id_marh' => $model->id_marh]);
         }
 
         return $this->render('update', [
@@ -114,13 +114,13 @@ class MarhController extends Controller
     /**
      * Deletes an existing Marh model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $Код_маршрута Код Маршрута
+     * @param int $id_marh Id Marh
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($Код_маршрута)
+    public function actionDelete($id_marh)
     {
-        $this->findModel($Код_маршрута)->delete();
+        $this->findModel($id_marh)->delete();
 
         return $this->redirect(['index']);
     }
@@ -128,13 +128,13 @@ class MarhController extends Controller
     /**
      * Finds the Marh model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $Код_маршрута Код Маршрута
+     * @param int $id_marh Id Marh
      * @return Marh the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($Код_маршрута)
+    protected function findModel($id_marh)
     {
-        if (($model = Marh::findOne(['Код_маршрута' => $Код_маршрута])) !== null) {
+        if (($model = Marh::findOne(['id_marh' => $id_marh])) !== null) {
             return $model;
         }
 

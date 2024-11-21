@@ -7,59 +7,59 @@ class m251112_112641_create_dispet_table extends Migration
     public function safeUp()
     {
         $this->createTable('dispet', [
-            'Код_авто' => $this->integer()->notNull(),
-            'Время_прибытия' => $this->dateTime()->notNull(),
-            'Время_отбытия' => $this->dateTime(),
-            'Код_водителя' => $this->integer()->notNull(),
-            'Путевка' => $this->integer()->notNull(),
-            'Товар' => $this->integer()->notNull(),
+            'id_avto' => $this->integer()->notNull(),
+            'time_prib' => $this->dateTime()->notNull(),
+            'time_otb' => $this->dateTime(),
+            'id_vod' => $this->integer()->notNull(),
+            'pytevka' => $this->integer()->notNull(),
+            'tovar' => $this->integer()->notNull(),
         ]);
 
-        $this->addPrimaryKey('pk-dispet-Код_авто', 'dispet', 'Код_авто');
+        $this->addPrimaryKey('pk-dispet-id_avto', 'dispet', 'id_avto');
 
         $this->addForeignKey(
-            'fk-dispet-Код_авто',
+            'fk-dispet-id_avto',
             'dispet',
-            'Код_авто',
+            'id_avto',
             'avto',
-            'Код_авто',
+            'id_avto',
             'CASCADE'
         );
 
         $this->addForeignKey(
-            'fk-dispet-Код_водителя',
+            'fk-dispet-id_vod',
             'dispet',
-            'Код_водителя',
+            'id_vod',
             'voditeli',
-            'Код_водителя',
+            'id_vod',
             'CASCADE'
         );
 
         $this->addForeignKey(
-            'fk-dispet-Товар',
+            'fk-dispet-tovar',
             'dispet',
-            'Товар',
             'tovar',
-            'Код_товара',
+            'tovar',
+            'id_tovar',
             'CASCADE'
         );
 
         $this->addForeignKey(
-            'fk-dispet-Путевка',
+            'fk-dispet-pytevka',
             'dispet',
-            'Путевка',
+            'pytevka',
             'marh',
-            'Код_маршрута',
+            'id_marh',
             'CASCADE'
         );
     }
 
     public function safeDown()
     {
-        $this->dropForeignKey('fk-dispet-Код_авто', 'dispet');
-        $this->dropForeignKey('fk-dispet-Код_водителя', 'dispet');
-        $this->dropForeignKey('fk-dispet-Товар', 'dispet');
-        $this->dropForeignKey('fk-dispet-Путевка', 'dispet');
+        $this->dropForeignKey('fk-dispet-id_avto', 'dispet');
+        $this->dropForeignKey('fk-dispet-id_vod', 'dispet');
+        $this->dropForeignKey('fk-dispet-tovar', 'dispet');
+        $this->dropForeignKey('fk-dispet-pytevka', 'dispet');
         $this->dropTable('dispet');
     }
 }

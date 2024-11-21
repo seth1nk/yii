@@ -7,12 +7,11 @@ use Yii;
 /**
  * This is the model class for table "marh".
  *
- * @property int $Код_маршрута
- * @property string $Пункт_назначения
- * @property int $Расстояние_до_пункта_назначения
+ * @property int $id_marh
+ * @property string $mesto
+ * @property int $rasstoyanie
  *
  * @property Dispet[] $dispets
- * @property Tovar[] $Товарs
  */
 class Marh extends \yii\db\ActiveRecord
 {
@@ -30,9 +29,9 @@ class Marh extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Пункт_назначения', 'Расстояние_до_пункта_назначения'], 'required'],
-            [['Расстояние_до_пункта_назначения'], 'integer'],
-            [['Пункт_назначения'], 'string', 'max' => 30],
+            [['mesto', 'rasstoyanie'], 'required'],
+            [['rasstoyanie'], 'integer'],
+            [['mesto'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,9 +41,9 @@ class Marh extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Код_маршрута' => 'Код Маршрута',
-            'Пункт_назначения' => 'Пункт Назначения',
-            'Расстояние_до_пункта_назначения' => 'Расстояние До Пункта Назначения',
+            'id_marh' => 'Id Marh',
+            'mesto' => 'Mesto',
+            'rasstoyanie' => 'Rasstoyanie',
         ];
     }
 
@@ -55,16 +54,6 @@ class Marh extends \yii\db\ActiveRecord
      */
     public function getDispets()
     {
-        return $this->hasMany(Dispet::class, ['Путевка' => 'Код_маршрута']);
-    }
-
-    /**
-     * Gets query for [[Товарs]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getТоварs()
-    {
-        return $this->hasMany(Tovar::class, ['Код_товара' => 'Товар'])->viaTable('dispet', ['Путевка' => 'Код_маршрута']);
+        return $this->hasMany(Dispet::class, ['pytevka' => 'id_marh']);
     }
 }

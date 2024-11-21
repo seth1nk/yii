@@ -17,8 +17,8 @@ class MarhSearch extends Marh
     public function rules()
     {
         return [
-            [['Код_маршрута', 'Расстояние_до_пункта_назначения'], 'integer'],
-            [['Пункт_назначения'], 'safe'],
+            [['id_marh', 'rasstoyanie'], 'integer'],
+            [['mesto'], 'safe'],
         ];
     }
 
@@ -58,11 +58,11 @@ class MarhSearch extends Marh
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Код_маршрута' => $this->Код_маршрута,
-            'Расстояние_до_пункта_назначения' => $this->Расстояние_до_пункта_назначения,
+            'id_marh' => $this->id_marh,
+            'rasstoyanie' => $this->rasstoyanie,
         ]);
 
-        $query->andFilterWhere(['like', 'Пункт_назначения', $this->Пункт_назначения]);
+        $query->andFilterWhere(['like', 'mesto', $this->mesto]);
 
         return $dataProvider;
     }

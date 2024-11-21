@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -26,17 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'Код_водителя',
-            'ФИО_водителя',
+            //'id_vod',
+            'ФИО водителя',
             'Стаж',
-            'Номер_паспорта',
-            'Место_прописки',
+            '№ паспорта',
+            'Место прописки',
             'Телефон',
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view}',
                 'urlCreator' => function ($action, Voditeli $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'Код_водителя' => $model->Код_водителя]);
+                    return Url::toRoute([$action, 'id_vod' => $model->id_vod]);
                  }
             ],
         ],

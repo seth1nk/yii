@@ -17,34 +17,34 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="contact-list">
             <div class="contact-item">
+            <a href='/index.php?r=avto%2Findex'>
             <img src="/img/avto.jpg" width="40%">
-                <a href='/index.php?r=avto%2Findex'>
-                <h2>Автомобили</h2></a>
+                <h2><b>Автомобили</b></h2></a>
             </div>
             <div class="contact-item">
+            <a href='/index.php?r=marh%2Findex'>
             <img src="/img/marh.jpg" width="40%">
-                <a href='/index.php?r=marh%2Findex'>
-                <h2>Маршруты</h2></a>
+                <h2><b>Маршруты</b></h2></a>
             </div>
             <div class="contact-item">
+            <a href='/index.php?r=dispet%2Findex'>
             <img src="/img/dispet.jpg" width="40%">
-                <a href='/index.php?r=dispet%2Findex'>
-                <h2>Диспетчерская</h2></a>
+                <h2><b>Диспетчерская</b></h2></a>
             </div>
             <div class="contact-item">
+            <a href='/index.php?r=tovar%2Findex'>
             <img src="/img/tovar.jpeg" width="40%">
-                <a href='/index.php?r=tovar%2Findex'>
-                <h2>Товары</h2></a>
+                <h2><b>Товары</b></h2></a>
             </div>
             <div class="contact-item">
+            <a href='/index.php?r=garage%2Findex'>
             <img src="/img/garage.jpg" width="40%">
-                <a href='/index.php?r=garage%2Findex'>
-                <h2>Гаражи</h2></a>
+                <h2><b>Гаражи</b></h2></a>
             </div>
             <div class="contact-item">
+            <a href='/index.php?r=voditeli%2Findex'>
             <img src="/img/voditeli.jpg" width="40%">
-                <a href='/index.php?r=voditeli%2Findex'>
-                <h2>Водители</h2></a>
+                <h2><b>Водители</b></h2></a>
             </div>
         </div>
     </div>

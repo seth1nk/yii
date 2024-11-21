@@ -6,19 +6,18 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var common\models\Avto $model */
 
-$this->title = $model->Код_авто;
-$this->params['breadcrumbs'][] = ['label' => 'Avtos', 'url' => ['index']];
+$this->title = $model->id_avto;
+$this->params['breadcrumbs'][] = ['label' => 'Автомобили', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<link rel="stylesheet" type="text/css" href="/css/1.css" />
 <div class="avto-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Изменить', ['update', 'Код_авто' => $model->Код_авто], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Удалить', ['delete', 'Код_авто' => $model->Код_авто], [
+        <?= Html::a('Изменить', ['update', 'id_avto' => $model->id_avto], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id_avto' => $model->id_avto], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Вы уверены?',
@@ -30,12 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'Код_авто',
-            'Регистрационный_номер_авто',
-            'Название_авто',
-            'Год_выпуска_авто',
-            'Пробег',
-            'Категория',
+            'id_avto',
+            'registration_number',
+            'name_avto',
+            'god',
+            'probeg',
+            'category',
         ],
     ]) ?>
 

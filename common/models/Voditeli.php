@@ -7,14 +7,14 @@ use Yii;
 /**
  * This is the model class for table "voditeli".
  *
- * @property int $Код_водителя
- * @property string $ФИО_водителя
- * @property int $Стаж
- * @property int $Номер_паспорта
- * @property string $Место_прописки
- * @property string $Телефон
+ * @property int $id_vod
+ * @property string $name_vod
+ * @property int $stazh
+ * @property string $number_pass
+ * @property string $adress
+ * @property string $phone
  *
- * @property Dispet $dispet
+ * @property Dispet[] $dispets
  */
 class Voditeli extends \yii\db\ActiveRecord
 {
@@ -32,11 +32,9 @@ class Voditeli extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ФИО_водителя', 'Стаж', 'Номер_паспорта', 'Место_прописки', 'Телефон'], 'required'],
-            [['Стаж', 'Номер_паспорта'], 'integer'],
-            [['ФИО_водителя'], 'string', 'max' => 50],
-            [['Место_прописки'], 'string', 'max' => 30],
-            [['Телефон'], 'string', 'max' => 15],
+            [['name_vod', 'stazh', 'number_pass', 'adress', 'phone'], 'required'],
+            [['stazh'], 'integer'],
+            [['name_vod', 'number_pass', 'adress', 'phone'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,22 +44,22 @@ class Voditeli extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Код_водителя' => 'Код Водителя',
-            'ФИО_водителя' => 'Фио Водителя',
-            'Стаж' => 'Стаж',
-            'Номер_паспорта' => 'Номер Паспорта',
-            'Место_прописки' => 'Место Прописки',
-            'Телефон' => 'Телефон',
+            'id_vod' => 'Id Vod',
+            'name_vod' => 'Name Vod',
+            'stazh' => 'Stazh',
+            'number_pass' => 'Number Pass',
+            'adress' => 'Adress',
+            'phone' => 'Phone',
         ];
     }
 
     /**
-     * Gets query for [[Dispet]].
+     * Gets query for [[Dispets]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getDispet()
+    public function getDispets()
     {
-        return $this->hasOne(Dispet::class, ['Код_водителя' => 'Код_водителя']);
+        return $this->hasMany(Dispet::class, ['id_vod' => 'id_vod']);
     }
 }

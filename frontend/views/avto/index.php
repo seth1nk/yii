@@ -27,17 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'Код_авто',
-            'Регистрационный_номер_авто',
-            'Название_авто',
-            'Год_выпуска_авто',
+            //'id_avto',
+            'Регистрационный №',
+            'Название авто',
+            'Год выпуска',
             'Пробег',
-            //'Категория',
+            'Категория',
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view}',
                 'urlCreator' => function ($action, Avto $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'Код_авто' => $model->Код_авто]);
+                    return Url::toRoute([$action, 'id_avto' => $model->id_avto]);
                  }
             ],
         ],

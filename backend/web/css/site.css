@@ -44,6 +44,7 @@ a.desc:after {
 .grid-view th,
 .grid-view td:last-child {
     white-space: nowrap;
+    background: #5cf898;
 }
 
 .grid-view .filters input,
@@ -68,7 +69,7 @@ a.desc:after {
 /* align the logout "link" (button in form) of the navbar */
 .navbar form > button.logout {
     padding-top: 7px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(238, 255, 0, 0.5);
 }
 
 @media(max-width:767px) {

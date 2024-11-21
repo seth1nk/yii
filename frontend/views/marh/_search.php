@@ -15,11 +15,11 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'Код_маршрута') ?>
+    <?= $form->field($model, 'id_marh') ?>
 
-    <?= $form->field($model, 'Пункт_назначения') ?>
+    <?= $form->field($model, 'mesto') ?>
 
-    <?= $form->field($model, 'Расстояние_до_пункта_назначения') ?>
+    <?= $form->field($model, 'rasstoyanie') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -7,7 +7,7 @@ $params = array_merge(
 );
 
 return [
-    'name' => '<img src=/favicon.ico width="25%">',
+    'name' => 'АВТО-НЕЙЗ',
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],

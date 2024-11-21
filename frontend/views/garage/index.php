@@ -18,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -27,17 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'Код_авто',
-            'Тип_поломки',
-            'Вид_запчасти',
-            'Цена_запчасти',
-            'Дата_начала_ремонта',
-            //'Дата_конца_ремонта',
+            //'id_avto',
+            'Тип поломки',
+            'Вид запчасти',
+            'Цена запчасти',
+            'Дата начала ремонта',
+            'Дата конца ремонта',
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view}',
                 'urlCreator' => function ($action, Garage $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'Код_авто' => $model->Код_авто]);
+                    return Url::toRoute([$action, 'id_avto' => $model->id_avto]);
                  }
             ],
         ],

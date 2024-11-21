@@ -17,8 +17,8 @@ class AvtoSearch extends Avto
     public function rules()
     {
         return [
-            [['Код_авто', 'Регистрационный_номер_авто', 'Год_выпуска_авто'], 'integer'],
-            [['Название_авто', 'Пробег', 'Категория'], 'safe'],
+            [['id_avto', 'god', 'probeg'], 'integer'],
+            [['registration_number', 'name_avto', 'category'], 'safe'],
         ];
     }
 
@@ -58,14 +58,14 @@ class AvtoSearch extends Avto
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Код_авто' => $this->Код_авто,
-            'Регистрационный_номер_авто' => $this->Регистрационный_номер_авто,
-            'Год_выпуска_авто' => $this->Год_выпуска_авто,
+            'id_avto' => $this->id_avto,
+            'god' => $this->god,
+            'probeg' => $this->probeg,
         ]);
 
-        $query->andFilterWhere(['like', 'Название_авто', $this->Название_авто])
-            ->andFilterWhere(['like', 'Пробег', $this->Пробег])
-            ->andFilterWhere(['like', 'Категория', $this->Категория]);
+        $query->andFilterWhere(['like', 'registration_number', $this->registration_number])
+            ->andFilterWhere(['like', 'name_avto', $this->name_avto])
+            ->andFilterWhere(['like', 'category', $this->category]);
 
         return $dataProvider;
     }

@@ -5,12 +5,11 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Voditeli $model */
 
-$this->title = 'Изменить водителя: ' . $model->Код_водителя;
+$this->title = 'Update Voditeli: ' . $model->id_vod;
 $this->params['breadcrumbs'][] = ['label' => 'Voditelis', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->Код_водителя, 'url' => ['view', 'Код_водителя' => $model->Код_водителя]];
-$this->params['breadcrumbs'][] = 'Изменить';
+$this->params['breadcrumbs'][] = ['label' => $model->id_vod, 'url' => ['view', 'id_vod' => $model->id_vod]];
+$this->params['breadcrumbs'][] = 'Update';
 ?>
-<link rel="stylesheet" type="text/css" href="/css/1.css" />
 <div class="voditeli-update">
 
     <h1><?= Html::encode($this->title) ?></h1>

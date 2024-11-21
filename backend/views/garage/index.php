@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Добавить гараж', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Garage', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -30,16 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'Код_авто',
-            'Тип_поломки',
-            'Вид_запчасти',
-            'Цена_запчасти',
-            'Дата_начала_ремонта',
-            //'Дата_конца_ремонта',
+            //'id_avto',
+            'polomka',
+            'zapchast',
+            'cena_zapchast',
+            'data_nachalo',
+            'data_konec',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Garage $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'Код_авто' => $model->Код_авто]);
+                    return Url::toRoute([$action, 'id_avto' => $model->id_avto]);
                  }
             ],
         ],

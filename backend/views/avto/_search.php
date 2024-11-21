@@ -15,17 +15,17 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'Код_авто') ?>
+    <?= $form->field($model, 'id_avto') ?>
 
-    <?= $form->field($model, 'Регистрационный_номер_авто') ?>
+    <?= $form->field($model, 'registration_number') ?>
 
-    <?= $form->field($model, 'Название_авто') ?>
+    <?= $form->field($model, 'name_avto') ?>
 
-    <?= $form->field($model, 'Год_выпуска_авто') ?>
+    <?= $form->field($model, 'god') ?>
 
-    <?= $form->field($model, 'Пробег') ?>
+    <?= $form->field($model, 'probeg') ?>
 
-    <?php // echo $form->field($model, 'Категория') ?>
+    <?php // echo $form->field($model, 'category') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

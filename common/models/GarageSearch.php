@@ -17,8 +17,9 @@ class GarageSearch extends Garage
     public function rules()
     {
         return [
-            [['Код_авто', 'Цена_запчасти'], 'integer'],
-            [['Тип_поломки', 'Вид_запчасти', 'Дата_начала_ремонта', 'Дата_конца_ремонта'], 'safe'],
+            [['id_avto'], 'integer'],
+            [['polomka', 'zapchast', 'data_nachalo', 'data_konec'], 'safe'],
+            [['cena_zapchast'], 'number'],
         ];
     }
 
@@ -58,14 +59,14 @@ class GarageSearch extends Garage
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Код_авто' => $this->Код_авто,
-            'Цена_запчасти' => $this->Цена_запчасти,
-            'Дата_начала_ремонта' => $this->Дата_начала_ремонта,
-            'Дата_конца_ремонта' => $this->Дата_конца_ремонта,
+            'id_avto' => $this->id_avto,
+            'cena_zapchast' => $this->cena_zapchast,
+            'data_nachalo' => $this->data_nachalo,
+            'data_konec' => $this->data_konec,
         ]);
 
-        $query->andFilterWhere(['like', 'Тип_поломки', $this->Тип_поломки])
-            ->andFilterWhere(['like', 'Вид_запчасти', $this->Вид_запчасти]);
+        $query->andFilterWhere(['like', 'polomka', $this->polomka])
+            ->andFilterWhere(['like', 'zapchast', $this->zapchast]);
 
         return $dataProvider;
     }
